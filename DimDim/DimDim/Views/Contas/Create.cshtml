@@ -1,0 +1,40 @@
+﻿@model DimDim.Models.Conta
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="color:white; text-align:center">Cadastrar conta</h1>
+
+<h4 style="color:white; text-align:center">Conta</h4>
+<hr />
+<div class="row" style="justify-content:center">
+    <div class="col-md-4" style="background-color:white; border-radius:15px; padding: 27px">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Agencia" class="control-label"></label>
+                <input asp-for="Agencia" class="form-control" />
+                <span asp-validation-for="Agencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumConta" class="control-label"></label>
+                <input type="" asp-for="NumConta" class="form-control" />
+                <span asp-validation-for="NumConta" class="text-danger"></span>
+            </div>
+            <div class="form-group pt-4">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+         <div>
+    <a asp-action="Index">Back to List</a>
+</div>
+    </div>
+   
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

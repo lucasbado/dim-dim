@@ -1,0 +1,48 @@
+﻿@model IEnumerable<DimDim.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color:white; text-align:center"s>Index</h1>
+
+<p style="color:white; text-align:center">
+    <a asp-action="Create" >Criar novo</a>
+</p>
+<table class="table" style="background-color:white; border-radius:15px; padding: 27px">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Senha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Senha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-controller="Contas" asp-action="Create" asp-route-id="@item.Id">Criar conta</a> |
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
